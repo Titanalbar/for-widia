@@ -1,0 +1,125 @@
+/* === RESET & BACKGROUND === */
+body {
+    background: #ffe6ea;
+    background-image: radial-gradient(#ffc2ce 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+}
+
+/* === STYLING BUKU === */
+#album-romantis {
+    width: 800px;
+    height: 500px;
+    display: none; 
+    transform-origin: center center;
+    /* Bayangan di sini sudah Dihapus agar tidak membuat kotak transparan di kiri */
+}
+
+/* Bayangan dipindahkan ke sini agar hanya muncul di lembar kertas yang aktif */
+.page { 
+    background: #ffffff; 
+    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.2);
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.even { background: linear-gradient(to right, #ffffff 95%, #f2f2f2 100%); }
+.odd { background: linear-gradient(to left, #ffffff 95%, #f2f2f2 100%); }
+
+/* === COVER DEPAN & BELAKANG === */
+.cover {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%) !important;
+    color: #d81b60;
+    border: 1px solid #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.25) !important;
+}
+
+.cover h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 4rem;
+    margin: 0;
+    color: #d81b60;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.heart {
+    font-size: 3rem;
+    display: inline-block;
+    animation: beat 1s infinite alternate;
+    margin: 10px 0;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+/* === KONTEN CERITA & FOTO POLAROID === */
+.polaroid {
+    background: #fff;
+    padding: 10px 10px 25px 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    border-radius: 2px;
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.polaroid-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.page-content h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.page-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    padding: 0 20px;
+}
+
+.hint {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9rem;
+    color: #ff80ab;
+    font-weight: 600;
+}
