@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Buku Cerita Kita 💖</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
 </head>
@@ -20,6 +17,10 @@
             <p>Miringkan HP kamu ke samping (Landscape)<br>untuk pengalaman terbaik ya! ✨</p>
         </div>
     </div>
+
+    <audio id="bg-lagu" src="musik.mp3" loop></audio>
+
+    <button id="tombol-musik" class="music-btn">🎵</button>
 
     <div id="album-romantis">
         
@@ -34,14 +35,14 @@
 
         <div class="page even">
             <div class="page-content">
-                <p style="font-family: 'Caveat', cursive; font-size: 1.8rem; color: #aaa;">"Setiap cerita punya awalnya..."</p>
+                <h2>Awal Cerita Kita</h2>
+                <p>Hai! Aku sengaja buat ini khusus untuk kamu. Aku cuma mau bilang makasih karena udah hadir dan ngasih warna baru. Mungkin ini sederhana, tapi percayalah aku bikinnya pakai hati.</p>
             </div>
         </div>
-
         <div class="page odd">
             <div class="page-content">
                 <div class="polaroid">
-                    <img src="foto1.jpg" alt="Foto Kita">
+                    <img src="foto1.jpg" alt="Foto 1">
                     <div class="polaroid-caption">Hari itu... ✨</div>
                 </div>
             </div>
@@ -49,33 +50,130 @@
 
         <div class="page even">
             <div class="page-content">
-                <h2>Awal Cerita Kita</h2>
-                <p>Hai! Aku sengaja buat ini khusus untuk kamu. Aku cuma mau bilang makasih karena udah hadir dan ngasih warna baru. Mungkin ini sederhana, tapi percayalah aku bikinnya pakai hati.</p>
-            </div>
-        </div>
-
-        <div class="page odd">
-            <div class="page-content">
                 <h2>Hal yang Aku Suka</h2>
                 <p>Aku suka caramu senyum, caramu ngobrol, dan gimana kamu bisa bikin suasana jadi jauh lebih nyaman. Semoga kita bisa bikin banyak momen seru bareng-bareng ke depannya ya!</p>
             </div>
         </div>
-
-        <div class="page even">
+        <div class="page odd">
             <div class="page-content">
                 <div class="polaroid" style="transform: rotate(2deg);">
-                    <img src="foto2.jpg" alt="Momen Indah">
+                    <img src="foto2.jpg" alt="Foto 2">
                     <div class="polaroid-caption">Always 🌻</div>
                 </div>
             </div>
         </div>
 
-        <div class="page odd">
-            <div class="page-content">
-                <h2>Terima Kasih...</h2>
-                <p>Udah jadi alasan buat senyum-senyum sendiri belakangan ini. Jangan pernah bosan ya sama aku. Hehe.</p>
-            </div>
-        </div>
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 3</h2>
+            <p>Tulis cerita atau ingatan kamu tentang foto di sebelah kanan di sini ya...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto3.jpg" alt="Foto 3"><div class="polaroid-caption">Kenangan 3 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 4</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(3deg);"><img src="foto4.jpg" alt="Foto 4"><div class="polaroid-caption">Kenangan 4 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 5</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto5.jpg" alt="Foto 5"><div class="polaroid-caption">Kenangan 5 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 6</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(-2deg);"><img src="foto6.jpg" alt="Foto 6"><div class="polaroid-caption">Kenangan 6 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 7</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto7.jpg" alt="Foto 7"><div class="polaroid-caption">Kenangan 7 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 8</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(2deg);"><img src="foto8.jpg" alt="Foto 8"><div class="polaroid-caption">Kenangan 8 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 9</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto9.jpg" alt="Foto 9"><div class="polaroid-caption">Kenangan 9 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 10</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(-3deg);"><img src="foto10.jpg" alt="Foto 10"><div class="polaroid-caption">Kenangan 10 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 11</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto11.jpg" alt="Foto 11"><div class="polaroid-caption">Kenangan 11 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 12</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(2deg);"><img src="foto12.jpg" alt="Foto 12"><div class="polaroid-caption">Kenangan 12 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 13</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto13.jpg" alt="Foto 13"><div class="polaroid-caption">Kenangan 13 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 14</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(-2deg);"><img src="foto14.jpg" alt="Foto 14"><div class="polaroid-caption">Kenangan 14 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Momen Manis 15</h2>
+            <p>Tulis ceritamu di sini...</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid"><img src="foto15.jpg" alt="Foto 15"><div class="polaroid-caption">Kenangan 15 ✨</div></div>
+        </div></div>
+
+        <div class="page even"><div class="page-content">
+            <h2>Terima Kasih...</h2>
+            <p>Udah jadi alasan buat senyum-senyum sendiri belakangan ini. Jangan pernah bosan ya sama aku. Hehe.</p>
+        </div></div>
+        <div class="page odd"><div class="page-content">
+            <div class="polaroid" style="transform: rotate(3deg);"><img src="foto16.jpg" alt="Foto 16"><div class="polaroid-caption">Our Journey 🌸</div></div>
+        </div></div>
 
         <div class="page cover even">
             <div class="page-content">

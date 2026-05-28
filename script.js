@@ -2,17 +2,15 @@ function resizeAlbum() {
     var screenWidth = $(window).width();
     var screenHeight = $(window).height();
     
-    // 1. Logika Deteksi HP Tegak (Portrait) vs Miring (Landscape)
     if (screenWidth < screenHeight && screenWidth < 768) {
-        $('#notifikasi-hp').css('display', 'flex'); // Tampilkan pesan suruh miringkan HP
+        $('#notifikasi-hp').css('display', 'flex');
         $('#album-romantis').hide();
         return;
     } else {
-        $('#notifikasi-hp').hide(); // Sembunyikan pesan jika posisi sudah miring/di laptop
+        $('#notifikasi-hp').hide();
         $('#album-romantis').show();
     }
 
-    // 2. Kalkulasi Auto-Zoom yang Presisi tanpa Distorsi
     var maxWidth = screenWidth - 20; 
     var maxHeight = screenHeight - 20;
     
@@ -26,6 +24,8 @@ function resizeAlbum() {
 
 $(window).on('load', function() {
     var album = $('#album-romantis');
+    var lagu = document.getElementById('bg-lagu');
+    var tombolMusik = $('#tombol-musik');
     
     // Inisialisasi Turn.js
     album.turn({
@@ -35,14 +35,34 @@ $(window).on('load', function() {
         duration: 1200
     });
 
-    // Jalankan fungsi responsif pertama kali
     resizeAlbum();
-    
-    // Deteksi otomatis jika layar berputar atau browser di-resize
     $(window).resize(resizeAlbum);
 
-    // Sistem Klik Layar
+    // LOGIKA AUDIO: Putar otomatis saat klik pertama kali di layar
+    $(document).one('click', function() {
+        lagu.play().then(function() {
+            tombolMusik.addClass('playing');
+        }).catch(function(error) {
+            console.log("Autoplay diblokir browser, klik tombol manual.");
+        });
+    });
+
+    // Fungsi klik tombol manual (Play/Pause)
+    tombolMusik.on('click', function(e) {
+        e.stopPropagation(); // Mencegah lembar buku ikut terbalik saat klik tombol musik
+        if (lagu.paused) {
+            lagu.play();
+            tombolMusik.addClass('playing');
+        } else {
+            lagu.pause();
+            tombolMusik.removeClass('playing');
+        }
+    });
+
+    // Sistem Klik Navigasi Buku
     $(document).on('click', function(e) {
+        if ($(e.target).closest('#tombol-musik').length) return;
+
         var screenCenter = $(window).width() / 2;
         if (e.pageX > screenCenter) { 
             album.turn('next');
@@ -51,7 +71,7 @@ $(window).on('load', function() {
         }
     });
 
-    // Tombol Arrow Keyboard
+    // Arrow Keyboard Navigasi
     $(document).keydown(function(e){
         if (e.keyCode == 37) { album.turn('previous'); } 
         if (e.keyCode == 39) { album.turn('next'); }     
