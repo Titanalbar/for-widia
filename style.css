@@ -85,11 +85,11 @@ body {
     height: 500px;
     display: none; 
     transform-origin: center center;
+    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.2);
 }
 
 .page { 
     background: #ffffff; 
-    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.2);
 }
 
 .page-content {
@@ -136,6 +136,62 @@ body {
     100% { transform: scale(1.2); }
 }
 
+/* === JUDUL BAB DI DAFTAR ISI === */
+.toc-chapter {
+    font-family: 'Quicksand', sans-serif; /* Disamakan dengan font list di bawahnya */
+    font-size: 1.3rem; /* Ukurannya diperbesar sedikit dari list yang berukuran 1.1rem */
+    color: #d81b60; /* Warna pink disamakan persis dengan list di bawahnya */
+    margin: 5px 0 10px 0;
+    text-align: left;
+    border-bottom: 2px dashed #ffb6c1; 
+    padding-bottom: 5px;
+    width: 100%;
+    font-weight: 700; /* Ditebalkan agar pas menjadi judul */
+}
+
+/* Gaya teks utama "Daftar Isi" */
+.page-content h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 3.2rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Merapikan daftar item di bawah bab */
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.toc-item {
+    font-size: 1.1rem;
+    color: #d81b60;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed #ffb6c1;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.toc-item:hover {
+    background: #fff0f3;
+    border-radius: 5px;
+    transform: translateX(5px);
+    box-shadow: 2px 2px 5px rgba(255, 105, 135, 0.1);
+}
+
+.toc-item span {
+    color: #888;
+    font-size: 0.9rem;
+}
+
 /* === FOTO POLAROID RESPONSIVE === */
 .polaroid {
     background: #fff;
@@ -147,10 +203,6 @@ body {
     transition: transform 0.3s ease;
     width: 75%;
     max-width: 270px;
-}
-
-.polaroid:hover {
-    transform: rotate(0deg) scale(1.05);
 }
 
 .polaroid img {
@@ -168,14 +220,7 @@ body {
     margin-top: 8px;
 }
 
-.page-content h2 {
-    font-family: 'Caveat', cursive;
-    font-size: 2.8rem;
-    color: #ff4081;
-    margin-bottom: 5px;
-    margin-top: 0;
-}
-
+/* === GAYA TEKS CERITA UMUM === */
 .page-content p {
     font-size: 1.05rem;
     line-height: 1.7;

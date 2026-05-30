@@ -11,8 +11,8 @@ function resizeAlbum() {
         $('#album-romantis').show();
     }
 
-    var maxWidth = screenWidth - 20; 
-    var maxHeight = screenHeight - 20;
+    var maxWidth = screenWidth - 40; 
+    var maxHeight = screenHeight - 40;
     
     var scale = Math.min(maxWidth / 800, maxHeight / 500);
     if (scale > 1) { scale = 1; }
@@ -32,13 +32,44 @@ $(window).on('load', function() {
         width: 800,
         height: 500,
         autoCenter: true,
-        duration: 1200
+        duration: 1500,
+        gradients: true,
+        elevation: 50
     });
+
+    // === TRIK AUTOPLAY VIDEO SAAT HALAMAN DIBUKA ===
+    album.bind("turning", function(event, page, view) {
+        // Jeda (pause) semua video saat halaman sedang dibalik
+        $("video").each(function() {
+            this.pause();
+        });
+    });
+
+    album.bind("turned", function(event, page, view) {
+        // Otomatis mainkan video hanya pada halaman yang sedang terbuka (kiri/kanan)
+        if (view[0]) {
+            $('.p' + view[0] + ' video').each(function() {
+                var playPromise = this.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(e) { console.log("Autoplay diblokir browser"); });
+                }
+            });
+        }
+        if (view[1]) {
+            $('.p' + view[1] + ' video').each(function() {
+                var playPromise = this.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(e) { console.log("Autoplay diblokir browser"); });
+                }
+            });
+        }
+    });
+    // ===============================================
 
     resizeAlbum();
     $(window).resize(resizeAlbum);
 
-    // LOGIKA AUDIO: Putar otomatis saat klik pertama kali di layar
+    // LOGIKA AUDIO
     $(document).one('click', function() {
         lagu.play().then(function() {
             tombolMusik.addClass('playing');
@@ -47,9 +78,8 @@ $(window).on('load', function() {
         });
     });
 
-    // Fungsi klik tombol manual (Play/Pause)
     tombolMusik.on('click', function(e) {
-        e.stopPropagation(); // Mencegah lembar buku ikut terbalik saat klik tombol musik
+        e.stopPropagation(); 
         if (lagu.paused) {
             lagu.play();
             tombolMusik.addClass('playing');
@@ -62,6 +92,7 @@ $(window).on('load', function() {
     // Sistem Klik Navigasi Buku
     $(document).on('click', function(e) {
         if ($(e.target).closest('#tombol-musik').length) return;
+        if ($(e.target).is('video')) return; // Jangan balik halaman kalau ngeklik video
 
         var screenCenter = $(window).width() / 2;
         if (e.pageX > screenCenter) { 
